@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use Inertia\Response;
+
 class IndexController extends Controller
 {
-	public function index(): string
+	public function index(): Response
 	{
-		return 'Index Method';
+		return Inertia::render('Index/Index', ['message' => 'test']);
 	}
 
-	public function store(): string
+	public function show(): Response
 	{
-		return 'Store Method';
+		return Inertia::render('Index/Show');
 	}
 }

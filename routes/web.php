@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +14,8 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', Inertia::render('Index'));
-Route::get('/home', [IndexController::class, 'store']);
+Route::get('/', [IndexController::class, 'index']);
+Route::get('/show', [IndexController::class, 'show']);
+
+Route::resource('listing', ListingController::class)
+	->only(['index', 'show']);
