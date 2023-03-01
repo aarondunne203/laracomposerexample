@@ -1,6 +1,6 @@
 <template>
   <span>
-    <div class="text-2xl font-bold">
+    <div class="font-bold">
       {{ formattedListingPrice }}
     </div>
   </span>
@@ -20,12 +20,6 @@ const formattedListingPrice = computed(
       currency: 'EUR',
       maximumFractionDigits: 0,
     }))
-</script>
-
-<script>
-export default {
-  name: 'ListingPrice',
-}
 </script>
 
 <style scoped>

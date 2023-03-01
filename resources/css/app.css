@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.label {
+		@apply block mb-1 text-gray-500 dark:text-gray-300 font-medium
+	}
+
+	.input {
+		@apply block w-full p-2 bg-gray-200 dark:bg-gray-800 border-gray-200 dark:border-gray-800 rounded-lg
+	}
+
+	.button-primary {
+		@apply bg-indigo-600 hover:bg-indigo-500 text-white font-medium p-2 rounded-md
+	}
+
+	.main-header {
+		@apply border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 w-full
+	}
+
+	.flash-success {
+		@apply mb-4 border rounded-md shadow-sm text-green-500 dark:text-white border-green-300 dark:border-green-800 bg-green-200 dark:bg-green-900 mt-2 p-2
+	}
+
+	.flash-error {
+		@apply mb-4 border rounded-md shadow-sm text-red-500 dark:text-white border-red-300 dark:border-red-800 bg-red-200 dark:bg-red-900 mt-2 p-2
+	}
+}
