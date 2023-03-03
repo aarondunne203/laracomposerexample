@@ -13,5 +13,17 @@ export const useMonthlyPayments = (interestRate, duration, total) => {
     )
   })
 
-  return {monthlyPayment}
+  const totalPaid = computed(() => {
+    return (
+      isRef(duration) ? duration.value : duration
+    ) * 12 * monthlyPayment.value
+  })
+
+  const totalInterest = computed(() =>
+    totalPaid.value - (
+      isRef(total) ? total.value : total
+    ),
+  )
+	
+  return {monthlyPayment, totalPaid, totalInterest}
 }

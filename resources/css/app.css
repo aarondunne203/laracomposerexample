@@ -12,7 +12,7 @@
 	}
 
 	.button-primary {
-		@apply bg-indigo-600 hover:bg-indigo-500 text-white font-medium p-2 rounded-md
+		@apply bg-indigo-600 hover:bg-indigo-500 text-white font-medium p-2 rounded-md active:bg-indigo-700
 	}
 
 	.main-header {
@@ -25,5 +25,13 @@
 
 	.flash-error {
 		@apply mb-4 border rounded-md shadow-sm text-red-500 dark:text-white border-red-300 dark:border-red-800 bg-red-200 dark:bg-red-900 mt-2 p-2
+	}
+
+	.nav-link {
+		@apply font-medium hover:text-indigo-600 dark:hover:text-indigo-300
+	}
+
+	.page-heading {
+		@apply text-center text-4xl font-bold p-6
 	}
 }

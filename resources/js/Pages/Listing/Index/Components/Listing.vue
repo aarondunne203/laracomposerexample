@@ -3,11 +3,10 @@
     <div>
       <Link :href="route('listing.show', {listing: props.listing.id})">
         <div>
-          <div class="flex items-center gap-2">
+          <div class="flex w-full items-center gap-2">
             <ListingPrice :price="listing.price" class="text-2xl" />
-            <div class="text-xs text-gray-500 ">
-              <ListingPrice :price="monthlyPayment" />
-              p/m
+            <div class="text-xs text-gray-500 flex">
+              <ListingPrice :price="monthlyPayment" />&nbsp;p/m
             </div>
           </div>
           <ListingFeatures :listing="listing" />
@@ -22,7 +21,7 @@
             Edit
           </MainButton>
 
-          <MainButton class="bg-red-500 hover:bg-red-400 text-white font-medium p-2 rounded-md">
+          <MainButton class="bg-red-500 hover:bg-red-400 active:bg-red-700 text-white font-medium p-2 rounded-md">
             Delete
           </MainButton>
         </div>

@@ -9,7 +9,15 @@ class IndexController extends Controller
 {
 	public function index(): Response
 	{
-		return Inertia::render('Index/Index', ['message' => 'test']);
+//		dd(\Auth::user());
+//		dd(\Auth::check());
+
+		return Inertia::render(
+			'Index/Index',
+			[
+				'message' => 'test'
+			]
+		);
 	}
 
 	public function show(): Response
