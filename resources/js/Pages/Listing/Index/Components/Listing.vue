@@ -6,10 +6,12 @@
           <div class="flex w-full items-center gap-2">
             <ListingPrice :price="listing.price" class="text-2xl" />
             <div class="text-xs text-gray-500 flex">
-              <ListingPrice :price="monthlyPayment" />&nbsp;p/m
+              <ListingPrice :price="monthlyPayment" />&nbsp;p/m*
             </div>
           </div>
+
           <ListingFeatures :listing="listing" />
+
           <ListingAddress :listing="listing" class="text-gray-500" />
         </div>
 
@@ -21,9 +23,12 @@
             Edit
           </MainButton>
 
-          <MainButton class="bg-red-500 hover:bg-red-400 active:bg-red-700 text-white font-medium p-2 rounded-md">
+          <Link
+            :href="route('listing.destroy', {listing: listing.id})" method="delete"
+            class="bg-red-500 hover:bg-red-400 active:bg-red-700 text-white font-medium p-2 rounded-md"
+          >
             Delete
-          </MainButton>
+          </Link>
         </div>
       </Link>
     </div>
@@ -31,12 +36,12 @@
 </template>
 
 <script setup>
-import Box from '../../../../UI/Box.vue'
+import Box from '../../../../Components/UI/Box.vue'
 import {Link} from '@inertiajs/vue3'
 import ListingPrice from '../../../../Components/ListingPrice.vue'
 import ListingFeatures from '../../../../Components/ListingFeatures.vue'
 import ListingAddress from '../../../../Components/ListingAddress.vue'
-import MainButton from '../../../../UI/MainButton.vue'
+import MainButton from '../../../../Components/UI/MainButton.vue'
 import {useMonthlyPayments} from '../../../Composables/useMonthlyPayments'
 
 const props = defineProps({

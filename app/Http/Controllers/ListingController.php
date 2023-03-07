@@ -10,16 +10,31 @@ use Inertia\Response;
 
 class ListingController extends Controller
 {
+
+	public function __construct()
+	{
+		$this->authorizeResource(Listing::class, 'listing');
+	}
+
+
 	/**
 	 * Display a listing of the resource.
 	 */
-	public function index(): Response
+	public function index(Request $request): Response
 	{
 		//
+		$filters = $request->only([
+			'priceFrom', 'priceTo', 'numOfBeds', 'numOfBaths', 'areaFrom', 'areaTo',
+		]);
+
 		return Inertia::render(
 			'Listing/Index',
 			[
-				'listings' => Listing::all()
+				'listings' => Listing::mostRecent()
+					->filterBy($filters)
+					->paginate(10)
+					->withQueryString(),
+				'filters' => $filters
 			]
 		);
 	}
@@ -40,7 +55,9 @@ class ListingController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		Listing::create(
+
+
+		$request->user()->listings()->create(
 			$request->validate([
 				'beds' => 'required|integer|min:0|max:20',
 				'baths' => 'required|integer|min:0|max:20',
@@ -64,6 +81,7 @@ class ListingController extends Controller
 	public function show(Listing $listing): Response
 	{
 		//
+
 		return Inertia::render(
 			'Listing/Show',
 			[

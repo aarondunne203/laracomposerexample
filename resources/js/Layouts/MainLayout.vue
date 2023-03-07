@@ -50,7 +50,6 @@
     >
       {{ flashSuccess }}
     </div>
-
     <slot>
       Default
     </slot>
@@ -60,7 +59,7 @@
 <script setup>
 import {Link, usePage} from '@inertiajs/vue3'
 import {computed} from 'vue'
-import MainButton from '../UI/MainButton.vue'
+import MainButton from '../Components/UI/MainButton.vue'
 
 const flashSuccess = computed(() =>
   usePage().props.flash.success,

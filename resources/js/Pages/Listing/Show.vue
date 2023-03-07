@@ -80,7 +80,7 @@
 import ListingAddress from '../../Components/ListingAddress.vue'
 import ListingPrice from '../../Components/ListingPrice.vue'
 import ListingFeatures from '../../Components/ListingFeatures.vue'
-import Box from '../../UI/Box.vue'
+import Box from '../../Components/UI/Box.vue'
 import {ref} from 'vue'
 import {useMonthlyPayments} from '../Composables/useMonthlyPayments'
 

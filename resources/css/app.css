@@ -34,4 +34,14 @@
 	.page-heading {
 		@apply text-center text-4xl font-bold p-6
 	}
+
+	.input-round-left {
+		@apply placeholder:text-gray-400 dark:placeholder:text-gray-600 bg-gray-200 dark:bg-gray-800 border-gray-200 dark:border-gray-800 rounded-l-lg
+
+	}
+
+	.input-round-right {
+		@apply placeholder:text-gray-400 dark:placeholder:text-gray-600 bg-gray-200 dark:bg-gray-800 border-gray-200 dark:border-gray-800 rounded-r-lg
+
+	}
 }
